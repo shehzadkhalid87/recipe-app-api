@@ -22,5 +22,5 @@ jobs:
       - name: Run Tests
         run: docker-compose run --rm app sh -c "python manage.py test"
 
-      # - name: Run Linting
-      # run: docker-compose run --rm app sh -c "flake8"
+      - name: Run Linting
+      run: docker-compose run --rm app sh -c "flake8"
