@@ -11,8 +11,8 @@ jobs:
      - name: login to Docker Hub
        uses: docker/login-action@v1
        with:
-        username: ${{ serects.PYTHON_DEVS }}
-        password: ${{ serects.PYTHON_DEVS_DOCKER_TOKEN }}
+        username: ${{ serects.PYTHON_DEVS_USER }}
+        password: ${{ serects.PYTHON_DEVS_DOCKERHUB_TOKEN }}
       - name: Checkout
         use: actions/checkout@v2
       - name: Test
