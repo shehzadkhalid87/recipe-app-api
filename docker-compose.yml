@@ -14,7 +14,7 @@ services:
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
     environment:
-      - PYTHON UNBUFFERED=1
+      - PYTHONUNBUFFERED=1
     depends_on:
       - db
 
