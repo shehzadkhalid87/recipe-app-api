@@ -15,7 +15,6 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(add(-1, 1), 0)
         self.assertEqual(add(0, 0), 0)
 
-
     def test_multiply(self):
         """Test the multiply function."""
         self.assertEqual(multiply(2, 3), 6)
