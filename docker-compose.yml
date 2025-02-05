@@ -1,12 +1,28 @@
+version: '3'
+
 services:
   app:
     build:
       context: .
       args:
-      - DEV=true
+        - DEV=true
     ports:
       - "8000:8000"
     volumes:
-      - ./app:/app
+      - ./app:/app  # Make sure this points to your app directory
+    working_dir: /app  # Ensure the working directory inside the container is correct
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: app_db
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data

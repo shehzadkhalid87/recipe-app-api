@@ -16,8 +16,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Build Docker Image
+        run: docker-compose build
+
       - name: Run Tests
-        run: docker compose run --rm app sh -c "python manage.py test"
+        run: docker-compose run --rm app sh -c "python manage.py test"
 
       - name: Run Linting
-        run: docker compose run --rm app sh -c "flake8"
+        run: docker-compose run --rm app sh -c "flake8"
