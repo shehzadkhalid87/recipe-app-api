@@ -1,10 +1,13 @@
 """
 calculator function
 """
+
 def add(x, y):
-    """add x and y and return result."""
+    """Add x and y and return result."""
     return x + y
 
+
 def multiply(x, y):
-    """multiply x and y and return result."""
+    """Multiply x and y and return result."""
     return x * y
+

@@ -1,18 +1,27 @@
 """
- sample tests
- """
-from django.test import SimpleTestCase
-from app import calc
+Unit tests for calculator functions.
+"""
 
-# simple unit testing
-class CalcTest(SimpleTestCase):
-    """test the calc Module"""
-    def test_add_numbers(self):
-        """Test the adding numbers togather"""
-        res = calc.add(1, 2)
-        self.assertEqual(res, 3)
+import unittest
+from app.calc import add, multiply
 
-    def test_multiply_numbers(self):
-        """multiply x and y and return result."""
-        res = calc.multiply(2,4)
-        self.assertEqual(res,8)
+
+class TestCalc(unittest.TestCase):
+    """Test the calculator functions."""
+
+    def test_add(self):
+        """Test the add function."""
+        self.assertEqual(add(2, 3), 5)
+        self.assertEqual(add(-1, 1), 0)
+        self.assertEqual(add(0, 0), 0)
+
+
+    def test_multiply(self):
+        """Test the multiply function."""
+        self.assertEqual(multiply(2, 3), 6)
+        self.assertEqual(multiply(-1, 1), -1)
+        self.assertEqual(multiply(0, 5), 0)
+
+
+if __name__ == "__main__":
+    unittest.main()
