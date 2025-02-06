@@ -21,16 +21,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install Docker Compose
-        run: |
-          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-
       - name: Build Docker Image
         run: docker-compose build
 
       - name: Run Tests
-        run: docker-compose run --rm app sh -c "python manage.py test"
+        run: docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
 
       - name: Run Linting
         run: docker-compose run --rm app sh -c "flake8"
