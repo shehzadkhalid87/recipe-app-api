@@ -1,5 +1,4 @@
-version: '3'
-
+#version: '3.8' don't need to define docker compose.yml version
 services:
   app:
     build:
